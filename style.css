@@ -1,0 +1,343 @@
+:root {
+    --bg: #000000;
+    --card: #1C1C1E;
+    --input: #2C2C2E;
+    --primary-green: #8DB600;
+    --text: #FFFFFF;
+    --text-secondary: #8E8E93;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.4;
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+.splash-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: #000;
+    letter-spacing: 4px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.animate-btn {
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.animate-btn:active {
+    transform: scale(0.92);
+}
+
+.app-header {
+    padding: 40px 20px 0px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #2C2C2E;
+}
+
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background: var(--card);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--primary-green);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.date-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.workout-indicator {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+#timer-display {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 15vw, 6rem);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.timer-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-pill {
+    border: none;
+    border-radius: 25px;
+    padding: 14px 24px;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--text);
+    background: var(--input);
+    min-width: 120px;
+}
+
+.btn-pill.green {
+    background: var(--primary-green);
+    color: #000;
+}
+
+.btn-pill.red {
+    background: #FF453A;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: -1px;
+    padding-bottom: 15px;
+    overflow-x: auto;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background: var(--card);
+    border: none;
+    color: var(--text-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tab-btn.active {
+    background: var(--primary-green);
+    color: #000;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#exerciseInput {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 16px 20px;
+    color: var(--text);
+    font-size: 16px;
+}
+
+.add-btn {
+    background: var(--primary-green);
+    border: none;
+    color: #000;
+    font-size: 28px;
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+}
+
+.exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.exercise-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 20px;
+    touch-action: pan-y;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.exercise-card:active {
+    transform: scale(0.96);
+    background: #2C2C2E;
+}
+
+.sortable-ghost {
+    opacity: 0.3;
+    background: var(--primary-green) !important;
+}
+
+.card-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked {
+    background: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: black;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.exercise-name {
+    flex: 1;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.exercise-note {
+    background: #2C2C2E;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 12px 15px;
+    color: var(--primary-green);
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.exercise-note::placeholder {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.finish-workout-btn {
+    width: 100%;
+    background: var(--primary-green);
+    color: #000;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.settings-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 40px;
+}
+
+.footer-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.divider {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}

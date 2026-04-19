@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+
+<body>
+    <div id="splash-screen">
+        <h1 class="splash-logo">GymFlow</h1>
+    </div>
+    <header class="app-header">
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="current-date" class="date-label"></div>
+        <div id="workout-title-display" class="workout-indicator">Treino A</div>
+        <div id="timer-display">00:00:00</div>
+        <div class="timer-actions">
+            <button id="start-btn" class="btn-pill green animate-btn">INICIAR</button>
+            <button id="pause-btn" class="btn-pill animate-btn" style="display: none;">PAUSAR</button>
+            <button id="reset-btn" class="btn-pill red animate-btn">ZERAR</button>
+        </div>
+        <nav class="tabs">
+            <button class="tab-btn active animate-btn" data-tab="A">A</button>
+            <button class="tab-btn animate-btn" data-tab="B">B</button>
+            <button class="tab-btn animate-btn" data-tab="C">C</button>
+            <button class="tab-btn animate-btn" data-tab="D">D</button>
+            <button class="tab-btn animate-btn" data-tab="E">E</button>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="input-group">
+            <input type="text" id="exerciseInput" placeholder="Exercício ; Carga" autocomplete="off" enterkeyhint="done">
+            <button id="add-exercise-btn" class="add-btn animate-btn">+</button>
+        </div>
+        <ul id="exerciseList" class="exercise-list"></ul>
+        <button id="finish-btn" class="finish-workout-btn animate-btn" style="display: none;">Finalizar Treino</button>
+        <footer class="settings-footer">
+            <button id="export-btn" class="footer-btn animate-btn">Sincronizar</button>
+            <span class="divider">|</span>
+            <label for="importFile" class="footer-btn animate-btn">Importar</label>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
