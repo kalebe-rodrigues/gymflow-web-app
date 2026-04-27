@@ -50,6 +50,14 @@
             <input type="file" id="importFile" accept=".json" style="display: none;">
         </footer>
     </main>
+    <!-- Modal customizado: substitui alert(), confirm() e prompt() nativos -->
+    <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-box">
+            <p id="modal-title" class="modal-title"></p>
+            <input id="modal-input" class="modal-input" type="text" style="display:none">
+            <div id="modal-actions" class="modal-actions"></div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 

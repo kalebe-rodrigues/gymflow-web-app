@@ -337,7 +337,126 @@ input[type="checkbox"]:checked::after {
     padding: 10px;
 }
 
-.divider {
-    color: var(--text-secondary);
-    opacity: 0.5;
+
+/* ── Modal customizado ───────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 24px;
+    /* oculto por padrão; exibido via JS adicionando .modal-visible */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.modal-overlay.modal-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: #1C1C1E;
+    border: 1px solid #3A3A3C;
+    border-radius: 20px;
+    padding: 28px 24px 20px;
+    width: 100%;
+    max-width: 320px;
+    transform: translateY(12px) scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.modal-visible .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin: 0 0 18px;
+    line-height: 1.5;
+}
+
+/* Input presente apenas nos modais de edição (tipo prompt) */
+.modal-input {
+    width: 100%;
+    background: #2C2C2E;
+    border: 1px solid #3A3A3C;
+    border-radius: 12px;
+    padding: 13px 15px;
+    color: var(--text);
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 18px;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.modal-input:focus {
+    border-color: var(--primary-green);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 13px 10px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+}
+
+.modal-actions button:active {
+    transform: scale(0.94);
+    opacity: 0.85;
+}
+
+/* Botão de confirmação (verde) */
+.modal-btn-confirm {
+    background: var(--primary-green);
+    color: #000;
+}
+
+/* Botão destrutivo (vermelho) */
+.modal-btn-danger {
+    background: #FF453A;
+    color: #fff;
+}
+
+/* Botão de cancelamento (neutro) */
+.modal-btn-cancel {
+    background: #3A3A3C;
+    color: var(--text);
+}
+
+/* ── Edição in-place do nome do exercício ────────────────────── */
+.exercise-name-input {
+    flex: 1;
+    background: #2C2C2E;
+    border: 1px solid var(--primary-green);
+    border-radius: 8px;
+    padding: 4px 10px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    /* Mantém o mesmo espaço visual do <span> */
+    min-width: 0;
+    width: 100%;
 }
